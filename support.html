@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLAHUB Support — Get help with the GLAHUB portfolio learning app. Contact our support email, browse FAQs, and find resources.">
+<meta name="theme-color" content="#0B0F1A">
+<title>Support — GLAHUB</title>
+<style>
+  :root { --bg:#0B0F1A; --bg-soft:#111827; --card:#151B2B; --border:#1F2937; --text:#E5E7EB; --muted:#94A3B8; --accent:#38BDF8; --accent-2:#A78BFA; --up:#10B981; --radius:14px; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: radial-gradient(900px 500px at 0% 0%, rgba(56,189,248,0.10), transparent 60%), var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  header { border-bottom: 1px solid var(--border); background: rgba(11,15,26,0.7); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 50; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+  .brand .logo { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: inline-flex; align-items: center; justify-content: center; color: #0B0F1A; font-weight: 800; }
+  nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--text); font-size: 14px; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 720px) { nav ul { display: none; } }
+
+  main { padding: 56px 0 96px; }
+  h1 { font-size: 36px; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin: 36px 0 12px; }
+  p, li { color: var(--text); font-size: 15px; }
+  .lede { color: var(--muted); font-size: 16px; max-width: 640px; }
+
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .contact {
+    margin-top: 24px; padding: 28px; border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(167,139,250,0.15));
+    border: 1px solid var(--border);
+  }
+  .contact .email {
+    display: inline-block; margin-top: 8px; padding: 10px 14px; border-radius: 10px;
+    background: #0B0F1A; border: 1px solid var(--border); color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px;
+  }
+
+  .faq details { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+  .faq summary:hover { color: var(--accent); }
+  .faq details[open] summary { color: var(--accent); margin-bottom: 8px; }
+  .faq p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+  .tips li { margin-bottom: 6px; }
+  ul.plain { padding-left: 18px; }
+
+  .form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-top: 16px; }
+  .form label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 6px; }
+  .form input, .form select, .form textarea {
+    width: 100%; padding: 11px 12px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--bg-soft); color: var(--text); font-size: 14px; font-family: inherit;
+  }
+  .form textarea { min-height: 110px; resize: vertical; }
+  .form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .form .row { grid-template-columns: 1fr; } }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid transparent; cursor: pointer; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0B0F1A; }
+  .btn-primary:hover { text-decoration: none; transform: translateY(-1px); }
+  .form-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: 13px; }
+  .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="logo">G</span><span>GLAHUB</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Support</h1>
+    <p class="lede">We're here to help you get the most out of GLAHUB. Find answers to common questions or reach out to our team — we read every message.</p>
+
+    <div class="contact">
+      <strong>Email our support team</strong>
+      <div class="email">
+        <a href="mailto:jonesberlin9@gmail.com">jonesberlin9@gmail.com</a>
+      </div>
+      <p class="form-note">We typically reply within 2 business days. Please include your iOS version and device model for the fastest help.</p>
+    </div>
+
+    <h2>Quick help</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Getting started</h3>
+        <p>Open the Markets tab, tap any instrument, and start exploring charts and fundamentals. Add trades from the Trade tab.</p>
+      </div>
+      <div class="card">
+        <h3>Attach a receipt</h3>
+        <p>In the Trade form, tap the photo area to use the camera or pick from the photo library. Images are saved with the trade.</p>
+      </div>
+      <div class="card">
+        <h3>Set a price alert</h3>
+        <p>Open any instrument → tap the bell icon → choose above/below threshold. Alerts are evaluated continuously while the app is open.</p>
+      </div>
+      <div class="card">
+        <h3>Reset the app</h3>
+        <p>Go to Profile → Settings → Reset to clear all portfolios, trades, alerts, and images stored on this device.</p>
+      </div>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Does GLAHUB connect to my brokerage?</summary>
+        <p>No. GLAHUB is an offline-first learning sandbox. There is no live broker connection and no real money is exchanged.</p>
+      </details>
+      <details>
+        <summary>Where is my data stored?</summary>
+        <p>All of your data — portfolios, trades, alerts, notes, and attached images — is stored locally on your iOS device and never sent to a server.</p>
+      </details>
+      <details>
+        <summary>Why are prices updating on their own?</summary>
+        <p>GLAHUB uses a simulated price engine so the experience feels alive. Prices are not real market data and cannot be used for trading.</p>
+      </details>
+      <details>
+        <summary>How do I delete my data?</summary>
+        <p>Open Profile → Settings → Reset, or simply uninstall the app. Both methods remove all data stored on the device.</p>
+      </details>
+      <details>
+        <summary>The camera/photo permission was denied. How do I change it?</summary>
+        <p>Go to iOS Settings → GLAHUB → toggle Camera and/or Photos. You can re-enable permissions at any time.</p>
+      </details>
+      <details>
+        <summary>Can I export my trade journal?</summary>
+        <p>Use the share/export options inside the Trade and Portfolio modules to save or share generated reports.</p>
+      </details>
+      <details>
+        <summary>I found a bug. Where do I report it?</summary>
+        <p>Email <a href="mailto:jonesberlin9@gmail.com">jonesberlin9@gmail.com</a> with steps to reproduce, your device model, and iOS version. Screenshots are very helpful.</p>
+      </details>
+      <details>
+        <summary>Is GLAHUB investment advice?</summary>
+        <p>No. GLAHUB is for education and simulation only. It is not a brokerage and does not provide personalised investment recommendations.</p>
+      </details>
+    </div>
+
+    <h2>Send us a message</h2>
+    <p style="color: var(--muted);">Your default mail client will open with your message pre-filled to <strong>jonesberlin9@gmail.com</strong>.</p>
+
+    <form class="form" action="mailto:jonesberlin9@gmail.com" method="post" enctype="text/plain">
+      <div class="row">
+        <div>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+        </div>
+        <div>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <label for="topic">Topic</label>
+      <select id="topic" name="topic">
+        <option>General question</option>
+        <option>Bug report</option>
+        <option>Feature request</option>
+        <option>Account or data</option>
+        <option>Other</option>
+      </select>
+      <label for="device">Device &amp; iOS version</label>
+      <input id="device" name="device" type="text" placeholder="e.g. iPhone 14 Pro, iOS 17.4">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Describe your question, the steps to reproduce an issue, or your idea." required></textarea>
+      <div style="margin-top: 14px;">
+        <button class="btn btn-primary" type="submit">Send email</button>
+      </div>
+      <p class="form-note">By submitting, you agree we may reply to the email address you provided. We don't add you to any marketing list.</p>
+    </form>
+
+    <h2>Tips for a faster reply</h2>
+    <ul class="plain">
+      <li>Include your iOS version and device model.</li>
+      <li>Describe the steps that led to the issue.</li>
+      <li>Attach screenshots or screen recordings when relevant.</li>
+      <li>For privacy questions, see our <a href="privacy.html">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>Office hours</h2>
+    <p>Support is provided by email. We aim to respond within 2 business days. GLAHUB is a learning tool — for personalised investment advice, please consult a licensed financial professional.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© 2026 GLAHUB. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:jonesberlin9@gmail.com">jonesberlin9@gmail.com</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

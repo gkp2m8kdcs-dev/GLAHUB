@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLAHUB — A professional overseas equity learning and portfolio companion. Track markets across US, Hong Kong, A-shares, Japan, Europe, UK, and crypto with candlestick charts, trade journaling, portfolio analytics, currency tools, and price alerts.">
+<meta name="keywords" content="GLAHUB, GlobalInvest, portfolio tracker, stock learning, paper trading, candlestick chart, overseas markets, trade journal, investing education">
+<meta name="theme-color" content="#0B0F1A">
+<meta property="og:title" content="GLAHUB — Learn Overseas Investing, Risk-Free">
+<meta property="og:description" content="An educational portfolio companion for practicing overseas equity tracking, trade journaling, and risk analysis. No live broker. No real money.">
+<meta property="og:type" content="website">
+<title>GLAHUB — Learn Overseas Investing, Risk-Free</title>
+<style>
+  :root {
+    --bg: #0B0F1A;
+    --bg-soft: #111827;
+    --card: #151B2B;
+    --border: #1F2937;
+    --text: #E5E7EB;
+    --muted: #94A3B8;
+    --accent: #38BDF8;
+    --accent-2: #A78BFA;
+    --up: #10B981;
+    --down: #EF4444;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,0.12), transparent 60%),
+                radial-gradient(900px 500px at 100% 0%, rgba(167,139,250,0.10), transparent 60%),
+                var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,15,26,0.7);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .brand .logo {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #0B0F1A; font-weight: 800;
+  }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--text); font-size: 14px; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+  .nav-cta { display: inline-flex; align-items: center; gap: 8px; }
+  @media (max-width: 720px) { nav ul { display: none; } }
+
+  /* Hero */
+  .hero { padding: 88px 0 64px; }
+  .eyebrow {
+    display: inline-block; padding: 6px 12px; border-radius: 999px;
+    background: rgba(56,189,248,0.1); color: var(--accent);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    border: 1px solid rgba(56,189,248,0.25);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 56px); line-height: 1.1;
+    margin: 18px 0 18px; font-weight: 800; letter-spacing: -0.02em;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p.lede { font-size: 18px; color: var(--muted); max-width: 720px; }
+  .hero-actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 18px; border-radius: 10px; font-weight: 600; font-size: 15px;
+    border: 1px solid transparent; cursor: pointer; transition: transform .12s ease;
+  }
+  .btn:hover { transform: translateY(-1px); text-decoration: none; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0B0F1A; }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+
+  .hero-grid {
+    margin-top: 56px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center;
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } }
+  .mock {
+    background: linear-gradient(180deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+  .mock-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .mock-title { font-size: 13px; color: var(--muted); }
+  .pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(16,185,129,0.12); color: var(--up); border: 1px solid rgba(16,185,129,0.25); }
+  .stat { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); font-size: 14px; }
+  .stat:last-child { border-bottom: 0; }
+  .stat .k { color: var(--muted); }
+  .up { color: var(--up); } .down { color: var(--down); }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  section h2 { font-size: 32px; margin: 0 0 12px; letter-spacing: -0.01em; }
+  section .sub { color: var(--muted); margin-bottom: 36px; max-width: 720px; }
+  .grid { display: grid; gap: 20px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 880px) { .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px; transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); border-color: rgba(56,189,248,0.35); }
+  .card .icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(167,139,250,0.2));
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 14px; color: var(--accent);
+  }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* Market chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .chip {
+    padding: 8px 14px; border-radius: 999px; background: var(--card);
+    border: 1px solid var(--border); font-size: 13px; color: var(--text);
+  }
+
+  /* Disclaimer banner */
+  .disclaimer {
+    margin: 24px 0 0; padding: 16px 20px; border-radius: var(--radius);
+    background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3);
+    color: #FCA5A5; font-size: 14px;
+  }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(167,139,250,0.15));
+    border: 1px solid var(--border); border-radius: 20px; padding: 40px;
+    text-align: center;
+  }
+  .cta h2 { margin-bottom: 10px; }
+  .cta p { color: var(--muted); max-width: 600px; margin: 0 auto 22px; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 36px 0; color: var(--muted); font-size: 14px; }
+  .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand"><span class="logo">G</span><span>GLAHUB</span></div>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#markets">Markets</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="support.html">Contact Support</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">EDUCATION · PAPER TRADING · PORTFOLIO ANALYTICS</span>
+      <h1>Practice overseas investing<br>like a <span class="grad">professional</span>.</h1>
+      <p class="lede">
+        GLAHUB is an educational portfolio companion that helps aspiring investors learn how
+        professional trading interfaces work — before risking real capital. Track markets across
+        the US, Hong Kong, China A-shares, Japan, Europe, the UK, and crypto, journal trades,
+        and analyse risk in a beautiful, offline-first sandbox.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#features">Explore features</a>
+        <a class="btn btn-ghost" href="support.html">Get support</a>
+      </div>
+
+      <div class="hero-grid">
+        <div class="mock">
+          <div class="mock-head">
+            <div class="mock-title">Watchlist · AAPL</div>
+            <span class="pill">+1.84% today</span>
+          </div>
+          <div class="stat"><span class="k">Price</span><span>$192.36</span></div>
+          <div class="stat"><span class="k">Day range</span><span>$189.10 – $193.02</span></div>
+          <div class="stat"><span class="k">Market cap</span><span>$2.98T</span></div>
+          <div class="stat"><span class="k">P/E</span><span>31.4</span></div>
+          <div class="stat"><span class="k">52-week</span><span>$164.08 – $199.62</span></div>
+          <div class="stat"><span class="k">Dividend yield</span><span>0.48%</span></div>
+        </div>
+        <div>
+          <div class="mock">
+            <div class="mock-head">
+              <div class="mock-title">Candlestick · 1D</div>
+              <span class="pill">SIMULATED</span>
+            </div>
+            <svg viewBox="0 0 360 120" width="100%" height="140" aria-hidden="true">
+              <defs>
+                <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <g fill="#94A3B8" font-size="10">
+                <line x1="0" y1="20" x2="360" y2="20" stroke="#1F2937"/>
+                <line x1="0" y1="60" x2="360" y2="60" stroke="#1F2937"/>
+                <line x1="0" y1="100" x2="360" y2="100" stroke="#1F2937"/>
+              </g>
+              <path d="M0,90 L20,82 L40,86 L60,70 L80,76 L100,60 L120,68 L140,52 L160,58 L180,44 L200,50 L220,40 L240,46 L260,34 L280,42 L300,30 L320,38 L340,28 L360,34 L360,120 L0,120 Z" fill="url(#g)"/>
+              <path d="M0,90 L20,82 L40,86 L60,70 L80,76 L100,60 L120,68 L140,52 L160,58 L180,44 L200,50 L220,40 L240,46 L260,34 L280,42 L300,30 L320,38 L340,28 L360,34" fill="none" stroke="#10B981" stroke-width="2"/>
+            </svg>
+            <div class="chips">
+              <span class="chip">1D</span><span class="chip">1W</span><span class="chip">1M</span>
+              <span class="chip">3M</span><span class="chip">1Y</span><span class="chip">5Y</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        For educational and simulation purposes only. GLAHUB is not a brokerage and does not
+        provide investment recommendations. Practice trading involves simulated data and no real
+        money is exchanged. Always consult a licensed financial professional before making
+        investment decisions.
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2>Everything you need to learn by doing</h2>
+      <p class="sub">A complete sandbox modelled on professional trading terminals — but safe for learners.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+          </div>
+          <h3>Real-time price simulation</h3>
+          <p>Live ticking prices across a curated universe of overseas equities, so the chart always feels alive.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+          </div>
+          <h3>Interactive candlestick charts</h3>
+          <p>Six timeframes from 1 day to 5 years — perfect for learning trend, support, and resistance.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l4-4 3 3 5-6"/></svg>
+          </div>
+          <h3>Fundamentals at a glance</h3>
+          <p>Market cap, P/E, dividend yield, day range, volume, and 52-week high/low on every detail page.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>Trade journal with receipts</h3>
+          <p>Log practice buys and sells with quantity, price, fees, status, notes, and attached photos.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Portfolio analytics</h3>
+          <p>Sector allocation pies, performance equity curves, top movers, and position-level P/L.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 010 20"/><path d="M12 2a15 15 0 000 20"/></svg>
+          </div>
+          <h3>Currency & risk tools</h3>
+          <p>Convert across 10 major currencies and visualise reward-to-risk with the position size calculator.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets">
+    <div class="container">
+      <h2>Built for global markets</h2>
+      <p class="sub">Filter by sector and explore heatmaps. From Hong Kong tech to New York blue chips.</p>
+      <div class="chips">
+        <span class="chip">United States</span>
+        <span class="chip">Hong Kong</span>
+        <span class="chip">China A-shares</span>
+        <span class="chip">Japan</span>
+        <span class="chip">Europe</span>
+        <span class="chip">United Kingdom</span>
+        <span class="chip">Crypto</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <h2>Tools that turn data into learning</h2>
+      <p class="sub">Alerts, news, and educational content — all designed to reinforce sound habits.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Configurable price alerts</h3>
+          <p>Set thresholds on any instrument and get notified in-app. Learn how triggers behave in real markets.</p>
+        </div>
+        <div class="card">
+          <h3>Educational news module</h3>
+          <p>Curated articles reinforce learning without offering personalised advice. Always check your assumptions.</p>
+        </div>
+        <div class="card">
+          <h3>Region-based filtering</h3>
+          <p>Quickly narrow the watchlist to a single market to compare regional performance and risk.</p>
+        </div>
+        <div class="card">
+          <h3>Privacy by design</h3>
+          <p>All data lives on your device. No accounts, no analytics, no live broker connection. <a href="privacy.html">Read our privacy policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Does GLAHUB connect to a live broker?</h3>
+          <p>No. GLAHUB is a learning sandbox. There is no account, no live order routing, and no real money involved.</p>
+        </div>
+        <div class="card">
+          <h3>Is any of my data sent off my device?</h3>
+          <p>No. All portfolio, trade, and watchlist data stays on your device. See our <a href="privacy.html">privacy policy</a> for details.</p>
+        </div>
+        <div class="card">
+          <h3>Which markets can I explore?</h3>
+          <p>United States, Hong Kong, China A-shares, Japan, Europe, the United Kingdom, and major cryptocurrencies.</p>
+        </div>
+        <div class="card">
+          <h3>How do I get support?</h3>
+          <p>Email us at <a href="mailto:jonesberlin9@gmail.com">jonesberlin9@gmail.com</a> or visit our <a href="support.html">support page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Learn the markets. Keep your capital.</h2>
+        <p>Build the habits of a professional investor in a safe, offline-first environment.</p>
+        <a class="btn btn-primary" href="support.html">Contact support</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© 2026 GLAHUB. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:jonesberlin9@gmail.com">jonesberlin9@gmail.com</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
